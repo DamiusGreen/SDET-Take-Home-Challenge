@@ -1,5 +1,5 @@
-function add(x, y) {
+function add(x) {
     return x + y;
 }
 
-add(2,2);
+console.log(add(2,2));
