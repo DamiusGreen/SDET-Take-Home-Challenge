@@ -24,7 +24,6 @@ describe('/GET', () => {
     chai.request("http://seeinstore.rtg-prod.com")
         .get("/seeInStore?sku=7005451p&zipcode=33610")
         .end((err, res) => {
-          should.equal(err, null);
           res.should.be.json;
           done();
         })
@@ -34,7 +33,6 @@ describe('/GET', () => {
     chai.request("http://seeinstore.rtg-prod.com")
         .get("/seeInStore?sku=7005451p&zipcode=33610")
         .end((err, res) => {
-            should.equal(err, null);
             res.body.should.be.a('array');
             done();
         });
@@ -44,7 +42,6 @@ it('should include these keys', (done) => {
     chai.request("http://seeinstore.rtg-prod.com")
         .get("/seeInStore?sku=7005451p&zipcode=33610")
         .end(function(err, res) {
-            should.equal(err, null);
             expect(res)
                 .to.have.nested.property('body[0]')
                 .that.includes.all.keys([ 'address1', 

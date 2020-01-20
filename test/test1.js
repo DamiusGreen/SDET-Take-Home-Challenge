@@ -14,7 +14,6 @@ describe('/GET', () => {
     chai.request("http://seeinstore.rtg-prod.com")
         .get("/seeInStore?sku=7005451p&zipcode=33610")
         .end(function(err, res) {
-          should.equal(err, null);
           res.should.have.status(200);
           res.text.should.contain('Dale Mabry');
           res.text.should.contain('Brandon');
