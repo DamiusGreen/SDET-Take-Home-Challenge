@@ -10,10 +10,11 @@ let should = chai.should();
 chai.use(chaihttp);
 
 describe('/GET', () => {
-  it('returns status and valid contains responses', function(done) {
+  it('returns 200 status and valid contains responses', function(done) {
     chai.request("http://seeinstore.rtg-prod.com")
         .get("/seeInStore?sku=7005451p&zipcode=33610")
-        .end((err, res) => {
+        .end(function(err, res) {
+          should.equal(err, null);
           res.should.have.status(200);
           res.text.should.contain('Dale Mabry');
           res.text.should.contain('Brandon');
